@@ -1,60 +1,69 @@
 # NFT Marketplace
 
 ## Technology Stack & Tools
-git init Solidity  // Smart contract development  
-git init JavaScript (React & Testing)  // Frontend and testing  
-git init Ethers.js  // Blockchain interaction  
-git init Hardhat  // Development framework  
-git init IPFS  // Metadata storage  
-git init React Router  // Navigation management  
+- **Solidity** – Smart contract development
+- **JavaScript (React & Testing)** – Frontend and testing
+- **Ethers.js** – Blockchain interaction
+- **Hardhat** – Development framework
+- **IPFS** – Metadata storage
+- **React Router** – Navigation management
 
 ---
 
 ## Initial Setup Requirements
-git install Node.js  # Ensure version < 16.5.0  
-git install Hardhat  
-git commit -m "Create Infura account and generate API keys"  
+- Install **Node.js** (Ensure the version is below **16.5.0**)
+- Install **Hardhat**
+- Create an account on [Infura](https://infura.io/) and generate your **private** and **public** keys.
 
 ---
 
-## Setting Up the Project  
+## Setting Up the Project
 
-git clone <repository_url>  
-cd nft_marketplace  
+### 1. Clone or Download the Repository
+```sh
+$ git clone <repository_url>
+$ cd nft_marketplace
+```
 
-git install dependencies  
-npm install  
+### 2. Install Dependencies
+```sh
+$ npm install
+```
 
-git commit -m "Set up Infura account"  
-> Sign up at [Infura](https://infura.io/)  
-> Create a new project (Ethereum)  
-> Copy Project ID & Project Secret  
-> Store keys securely  
+### 3. Start a Local Development Blockchain
+```sh
+$ npx hardhat node
+```
 
-git commit -m "Start local development blockchain"  
-npx hardhat node  
+### 4. Connect Development Blockchain Accounts to MetaMask
+- Copy the **private key** of an address from Hardhat.
+- Open **MetaMask**, click the **profile icon**, and select **Import Account**.
+- Paste the **private key** to import the account.
+- To connect MetaMask to Hardhat:
+  1. Click the **network dropdown** in MetaMask (top center).
+  2. Click **Add Network**.
+  3. Fill in the following details:
+     - **Network Name**: Hardhat
+     - **New RPC URL**: http://127.0.0.1:8545
+     - **Chain ID**: 31337
+  4. Click **Save**.
 
-git commit -m "Connect Development Blockchain Accounts to MetaMask"  
-> Copy private key from Hardhat  
-> Open MetaMask → Profile Icon → Import Account  
-> Paste private key  
-> Connect MetaMask to Hardhat:  
->> Click network dropdown → Add Network  
->> Network Name: `Hardhat`  
->> New RPC URL: `http://127.0.0.1:8545`  
->> Chain ID: `31337`  
->> Click Save  
+### 5. Deploy Smart Contracts
+```sh
+$ npx hardhat run src/backend/scripts/deploy.js --network localhost
+```
 
-git commit -m "Deploy smart contracts"  
-npx hardhat run src/backend/scripts/deploy.js --network localhost  
+### 6. Run Tests
+```sh
+$ npx hardhat test
+```
 
-git commit -m "Run tests"  
-npx hardhat test  
-
-git commit -m "Launch frontend"  
-npm run start  
+### 7. Launch Frontend
+```sh
+$ npm run start
+```
 
 ---
 
-## License  
-git commit -m "License under MIT"  
+## License
+This project is licensed under the **MIT License**.
